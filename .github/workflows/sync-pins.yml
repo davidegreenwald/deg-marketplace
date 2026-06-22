@@ -1,0 +1,48 @@
+name: Sync plugin pins
+
+# Keeps marketplace.json current: re-pins each github-source plugin to the
+# latest <name>--v<semver> release tag in its own repo, then opens a PR.
+# Uses only the default GITHUB_TOKEN — no cross-repo secrets.
+
+on:
+  schedule:
+    - cron: "17 * * * *" # hourly at :17
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Re-pin from plugin release tags
+        id: update
+        run: bash scripts/update-pins.sh
+
+      - name: Validate catalog
+        if: steps.update.outputs.changed == 'true'
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          claude plugin validate --strict .
+
+      - name: Open pull request
+        if: steps.update.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="sync/pins-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "${BRANCH}"
+          git add .claude-plugin/marketplace.json
+          git commit -m "chore(sync): advance plugin pins to latest release tags"
+          git push -u origin "${BRANCH}"
+          gh pr create \
+            --base main \
+            --head "${BRANCH}" \
+            --title "Sync plugin pins" \
+            --body "Automated: advanced plugin \`source.ref\`+\`sha\` to the latest \`<name>--v*\` release tags, validated with \`claude plugin validate --strict\`."

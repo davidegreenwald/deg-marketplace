@@ -1,0 +1,36 @@
+{
+  "name": "deg",
+  "owner": {
+    "name": "David Greenwald",
+    "email": "david@davidgreenwald.com"
+  },
+  "metadata": {
+    "description": "David Greenwald's Claude Code plugins.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "technical-writing-voice",
+      "source": {
+        "source": "github",
+        "repo": "davidegreenwald/technical-writing-voice",
+        "ref": "technical-writing-voice--v1.0.0",
+        "sha": "a5c2ca67197b6f269964b3234b31fc938f20191b"
+      },
+      "description": "Voice and clarity rules for technical prose.",
+      "author": {
+        "name": "David Greenwald"
+      },
+      "homepage": "https://github.com/davidegreenwald/technical-writing-voice",
+      "license": "MIT",
+      "keywords": [
+        "writing",
+        "style",
+        "voice",
+        "documentation",
+        "technical-writing"
+      ],
+      "strict": true
+    }
+  ]
+}
