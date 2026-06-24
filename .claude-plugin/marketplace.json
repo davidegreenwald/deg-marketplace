@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "David Greenwald's Claude Code plugins.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
@@ -29,6 +29,32 @@
         "voice",
         "documentation",
         "technical-writing"
+      ],
+      "strict": true
+    },
+    {
+      "name": "greenfield",
+      "source": {
+        "source": "github",
+        "repo": "davidegreenwald/claude-greenfield",
+        "ref": "greenfield--v1.0.0",
+        "sha": "98f9118dc2aab882835f6e56f8d9f21821e5d6e8"
+      },
+      "description": "Build and customize a production-ready agent workflow from scratch, or audit and upgrade your existing projects.",
+      "author": {
+        "name": "David Greenwald"
+      },
+      "homepage": "https://github.com/davidegreenwald/claude-greenfield",
+      "license": "MIT",
+      "keywords": [
+        "agentic",
+        "scaffolding",
+        "workflow",
+        "guardrails",
+        "code-quality",
+        "planning",
+        "audit",
+        "project-setup"
       ],
       "strict": true
     }

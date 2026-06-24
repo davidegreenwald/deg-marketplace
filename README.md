@@ -20,6 +20,14 @@ Voice and clarity rules for technical prose — lead with the point, name the me
 /plugin install technical-writing-voice@deg
 ```
 
+### greenfield
+
+Build and customize a production-ready agent workflow from scratch, or audit and upgrade your existing projects. Run it on an empty directory to scaffold a new project, or on an existing repo to review it against 13 success factors and install only what's missing — decision-complete tickets, a hook-enforced quality gate, reviewer subagents, ADRs, path-scoped rules, and a `/work` command. User-invoked via `/greenfield:greenfield`. Source: [claude-greenfield](https://github.com/davidegreenwald/claude-greenfield).
+
+```
+/plugin install greenfield@deg
+```
+
 ## How do I auto-enable a plugin in a project?
 
 Add the marketplace and enable the plugin in a project's `.claude/settings.json`, and anyone who trusts the folder is prompted to install both:
