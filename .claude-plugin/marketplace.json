@@ -37,8 +37,8 @@
       "source": {
         "source": "github",
         "repo": "davidegreenwald/claude-greenfield",
-        "ref": "greenfield--v1.0.0",
-        "sha": "98f9118dc2aab882835f6e56f8d9f21821e5d6e8"
+        "ref": "greenfield--v1.1.0",
+        "sha": "ced7e1a79d0f60c65c0e0a6beb64c15788318a5c"
       },
       "description": "Build and customize a production-ready agent workflow from scratch, or audit and upgrade your existing projects.",
       "author": {
