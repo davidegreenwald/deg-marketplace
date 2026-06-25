@@ -63,7 +63,8 @@
       "source": {
         "source": "github",
         "repo": "davidegreenwald/claude-opinionated-css",
-        "ref": "opinionated-css--v1.0.0"
+        "ref": "opinionated-css--v1.0.0",
+        "sha": "89cf81fd4bfadb839b46847ffa8d865cd551b3ef"
       },
       "description": "Author, review, and validate CSS and SCSS against an opinionated ITCSS-style house style with accessibility and performance floors baked in.",
       "author": {
