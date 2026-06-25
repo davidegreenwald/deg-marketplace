@@ -28,6 +28,14 @@ Build and customize a production-ready agent workflow from scratch, or audit and
 /plugin install greenfield@deg
 ```
 
+### opinionated-css
+
+Author, review, and validate CSS and SCSS against one opinionated ITCSS-style house style — low specificity, intrinsic-first responsive layout, a single token source, and a fluid type scale, with the accessibility and performance floors (contrast, focus, target size, CLS, LCP) baked into the authoring step rather than re-derived at review. Activates automatically on `.css` / `.scss` work; user-invoked via `/opinionated-css:opinionated-css`. Source: [opinionated-css](https://github.com/davidegreenwald/opinionated-css).
+
+```
+/plugin install opinionated-css@deg
+```
+
 ## How do I auto-enable a plugin in a project?
 
 Add the marketplace and enable the plugin in a project's `.claude/settings.json`, and anyone who trusts the folder is prompted to install both:

@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "David Greenwald's Claude Code plugins.",
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
   "plugins": [
     {
@@ -55,6 +55,30 @@
         "planning",
         "audit",
         "project-setup"
+      ],
+      "strict": true
+    },
+    {
+      "name": "opinionated-css",
+      "source": {
+        "source": "github",
+        "repo": "davidegreenwald/opinionated-css",
+        "ref": "opinionated-css--v1.0.0"
+      },
+      "description": "Author, review, and validate CSS and SCSS against an opinionated ITCSS-style house style with accessibility and performance floors baked in.",
+      "author": {
+        "name": "David Greenwald"
+      },
+      "homepage": "https://github.com/davidegreenwald/opinionated-css",
+      "license": "MIT",
+      "keywords": [
+        "css",
+        "scss",
+        "itcss",
+        "accessibility",
+        "performance",
+        "design-tokens",
+        "stylesheet"
       ],
       "strict": true
     }
