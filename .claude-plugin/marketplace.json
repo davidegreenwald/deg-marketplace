@@ -62,14 +62,14 @@
       "name": "opinionated-css",
       "source": {
         "source": "github",
-        "repo": "davidegreenwald/opinionated-css",
+        "repo": "davidegreenwald/claude-opinionated-css",
         "ref": "opinionated-css--v1.0.0"
       },
       "description": "Author, review, and validate CSS and SCSS against an opinionated ITCSS-style house style with accessibility and performance floors baked in.",
       "author": {
         "name": "David Greenwald"
       },
-      "homepage": "https://github.com/davidegreenwald/opinionated-css",
+      "homepage": "https://github.com/davidegreenwald/claude-opinionated-css",
       "license": "MIT",
       "keywords": [
         "css",

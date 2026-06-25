@@ -30,7 +30,7 @@ Build and customize a production-ready agent workflow from scratch, or audit and
 
 ### opinionated-css
 
-Author, review, and validate CSS and SCSS against one opinionated ITCSS-style house style — low specificity, intrinsic-first responsive layout, a single token source, and a fluid type scale, with the accessibility and performance floors (contrast, focus, target size, CLS, LCP) baked into the authoring step rather than re-derived at review. Activates automatically on `.css` / `.scss` work; user-invoked via `/opinionated-css:opinionated-css`. Source: [opinionated-css](https://github.com/davidegreenwald/opinionated-css).
+Author, review, and validate CSS and SCSS against one opinionated ITCSS-style house style — low specificity, intrinsic-first responsive layout, a single token source, and a fluid type scale, with the accessibility and performance floors (contrast, focus, target size, CLS, LCP) baked into the authoring step rather than re-derived at review. Activates automatically on `.css` / `.scss` work; user-invoked via `/opinionated-css:opinionated-css`. Source: [claude-opinionated-css](https://github.com/davidegreenwald/claude-opinionated-css).
 
 ```
 /plugin install opinionated-css@deg
