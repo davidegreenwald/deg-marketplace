@@ -5,8 +5,10 @@ name: Sync plugin pins
 # Uses only the default GITHUB_TOKEN — no cross-repo secrets.
 
 on:
-  schedule:
-    - cron: "17 * * * *" # hourly at :17
+  # Dispatch-only (no schedule): a plugin release-tag push from this machine fires a
+  # global pre-push hook that runs `gh workflow run sync-pins.yml`. Removing the cron
+  # also stops GitHub from auto-disabling this workflow after 60 days of repo inactivity.
+  # Manual fallback: gh workflow run sync-pins.yml -R davidegreenwald/deg-marketplace
   workflow_dispatch: {}
 
 permissions:
