@@ -53,7 +53,9 @@ Add the marketplace and enable the plugin in a project's `.claude/settings.json`
 
 Each plugin is pinned to an exact release in its own repo. A plugin entry's `source` carries a `ref` (the `<name>--v<semver>` git tag) and a `sha` (the exact commit), so an install resolves to a known version rather than the moving branch tip.
 
-A scheduled GitHub Actions job (`.github/workflows/sync-pins.yml`) keeps the pins current. It runs `scripts/update-pins.sh`, which reads each github-source entry, finds the newest `<name>--v<semver>` tag in that plugin's repo, and advances `ref` + `sha`. When a pin moves, the job validates the catalog with `claude plugin validate --strict` and opens a pull request — so every catalog change is reviewable, and the sync needs no cross-repo secrets (it uses the default `GITHUB_TOKEN`).
+A GitHub Actions job (`.github/workflows/sync-pins.yml`) keeps the pins current. It runs `scripts/update-pins.sh`, which reads each github-source entry, finds the newest `<name>--v<semver>` tag in that plugin's repo, and advances `ref` + `sha`. When a pin moves, the job validates the catalog with `claude plugin validate --strict` and opens a pull request — so every catalog change is reviewable, and the sync needs no cross-repo secrets (it uses the default `GITHUB_TOKEN`).
+
+The job is `workflow_dispatch`-only — it runs when a plugin release tag is pushed (a local `pre-push` hook dispatches it) rather than on a timer, so there is no idle polling and nothing for GitHub to auto-disable. To run it by hand: `gh workflow run sync-pins.yml -R davidegreenwald/deg-marketplace`.
 
 The version itself lives in each plugin's own `plugin.json` and is authoritative; the catalog entry deliberately omits a `version` field and pins by tag instead.
 
@@ -62,7 +64,8 @@ The version itself lives in each plugin's own `plugin.json` and is authoritative
 1. Create the plugin in its own public repo (root-layout: `.claude-plugin/plugin.json` plus `skills/`, `commands/`, or `agents/`). Set a semantic `version` in `plugin.json`.
 2. Cut a release tag with `claude plugin tag --push`, which creates `<plugin-name>--v<version>`.
 3. Add an entry to `plugins[]` in `.claude-plugin/marketplace.json` with a `github` source pointing at the repo and `ref` set to that tag. Leave `sha` out — the sync job fills it in.
-4. Bump `metadata.version`, validate with `claude plugin validate --strict .`, and commit. The sync job advances the pin on every later release.
+4. Bump `metadata.version`, validate with `claude plugin validate --strict .`, and commit.
+5. Populate `sha`: the tag from step 2 predates this entry, so trigger the sync once with `gh workflow run sync-pins.yml -R davidegreenwald/deg-marketplace` and merge the resulting PR. Later releases dispatch it automatically on tag push.
 
 ## License
 
